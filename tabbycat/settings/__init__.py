@@ -33,12 +33,5 @@ elif os.environ.get('ON_HEROKU', ''):
 elif os.environ.get('ON_RENDER', ''):
     base_settings.append('render.py')
     root.info('SPLIT_SETTINGS: imported render.py')
-else:
-    base_settings.append('local.py')
-    if os.environ.get('LOCAL_DEVELOPMENT', ''):
-        base_settings.append('development.py')
-        root.info('SPLIT_SETTINGS: imported local.py & development.py')
-    else:
-        root.info('SPLIT_SETTINGS: imported local.py')
 
 include(*base_settings)
